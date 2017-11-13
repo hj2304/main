@@ -16,7 +16,7 @@ import org.junit.Test;
 public class MrtMapLogicTest {
     @Test
     /**
-     * This is a trivial test case
+     * This is a trivial test case.
      */
     public void testTrivialSortedMrtList() throws Exception {
         MrtMapLogic mrtMapLogic = new MrtMapLogic();
