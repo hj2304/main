@@ -99,15 +99,15 @@ public class MrtMapLogicTest {
         MrtMapLogic mrtMapLogic = new MrtMapLogic();
         ArrayList<ArrayList<Integer>> mrtLineNumberList = mrtMapLogic.getMrtLineNumbers();
         //Jurong East's station codes are NS1 and EW 24
-        assertEquals((long)1, (long)mrtLineNumberList.get(0).get(0));
-        assertEquals((long)24, (long)mrtLineNumberList.get(0).get(1));
+        assertEquals((long) 1, (long) mrtLineNumberList.get(0).get(0));
+        assertEquals((long) 24, (long) mrtLineNumberList.get(0).get(1));
 
         //Potong Pasir's station code is NE10
-        assertEquals((long)10, (long)mrtLineNumberList.get(70).get(0));
+        assertEquals((long) 10, (long) mrtLineNumberList.get(70).get(0));
 
         //Promenade's station codes are DT15 and CC4
-        assertEquals((long)15, (long)mrtLineNumberList.get(122).get(0));
-        assertEquals((long)4, (long)mrtLineNumberList.get(122).get(1));
+        assertEquals((long) 15, (long) mrtLineNumberList.get(122).get(0));
+        assertEquals((long) 4, (long) mrtLineNumberList.get(122).get(1));
     }
 
     @Test
@@ -122,10 +122,10 @@ public class MrtMapLogicTest {
     public void getTravelTime() throws Exception {
         MrtMapLogic mrtMapLogic = new MrtMapLogic();
         int travelTime = mrtMapLogic.getTravelTime("Bishan", "Pasir Ris");
-        assertEquals((long)36, (long)travelTime);
+        assertEquals((long) 36, (long) travelTime);
 
         travelTime = mrtMapLogic.getTravelTime("HarbourFront", "Pasir Ris");
-        assertEquals((long)44, (long)travelTime);
+        assertEquals((long) 44, (long) travelTime);
     }
 
 }
