@@ -8,7 +8,7 @@ H.M.U is a software to help people manage their contacts easily. Apart from the 
 
 H.M.U cares about the security of its users as well. As such, users have to login with a username or password to continue using the app.
 
-*Code contributed*: [https://github.com/CS2103AUG2017-F10-B2/main/blob/master/collated/main/yewonn.md[Functional code]] [https://github.com/CS2103AUG2017-F10-B2/main/blob/master/collated/test/derickjw.md[Test code]] [https://github.com/CS2103AUG2017-F10-B2/main/blob/master/collated/unused/derickjw.md[Unused code]]
+*Code contributed*: [https://github.com/CS2103AUG2017-F10-B2/main/blob/master/collated/main/YewOnn.md[Functional code]] [https://github.com/CS2103AUG2017-F10-B2/main/blob/master/collated/test/YewOnn.md[Test code]]
 
 === Enhancement Added: Show Most Convenient Meeting Location
 
