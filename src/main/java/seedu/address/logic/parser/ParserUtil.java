@@ -124,6 +124,7 @@ public class ParserUtil {
         return time.isPresent() ? Optional.of(new Time(time.get())) : Optional.empty();
     }
 
+    //@@author hj2304
     /**
      * Parses {@code type} into an boolean value and returns it. Leading and trailing whitespaces will be
      * trimmed.

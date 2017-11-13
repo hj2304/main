@@ -59,10 +59,14 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<ReadOnlyPerson> predicate);
 
+    //@@author hj2304
     void sort();
+
+    //@@author YuChenHe98
 
     TreeSet<Integer> generateMeetingTime(Index[] listOfIndex);
 
+    //@@author hj2304
     boolean checkMeetingTime(Index[] listOfIndex, int day, int start, int end);
 
     void addEventToPerson(Integer index, Tag event);
