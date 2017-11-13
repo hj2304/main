@@ -142,7 +142,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Jurong East", "JUR", new String[] {"NS1", "EW24"}));
         mrtStations.add(new MrtStation("Bukit Batok", "BBT", new String[] {"NS2"}));
         mrtStations.add(new MrtStation("Bukit Gombak", "BGB", new String[] {"NS3"}));
-        mrtStations.add(new MrtStation("Choa Chua Kang", "CCK", new String[] {"NS4"}));
+        mrtStations.add(new MrtStation("Choa Chu Kang", "CCK", new String[] {"NS4"}));
         mrtStations.add(new MrtStation("Yew Tee", "YWT", new String[] {"NS5"}));
         mrtStations.add(new MrtStation("Kranji", "KRJ", new String[] {"NS7"}));
         mrtStations.add(new MrtStation("Marsiling", "MSL", new String[] {"NS8"}));
@@ -150,7 +150,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Admiralty", "ADM", new String[] {"NS10"}));
         mrtStations.add(new MrtStation("Sembawang", "SBW", new String[] {"NS11"}));
         mrtStations.add(new MrtStation("Yishun", "YIS", new String[] {"NS13"}));
-        mrtStations.add(new MrtStation("Khathib", "KTB", new String[] {"NS14"}));
+        mrtStations.add(new MrtStation("Khatib", "KTB", new String[] {"NS14"}));
         mrtStations.add(new MrtStation("Yio Chu Kang", "YCK", new String[] {"NS15"}));
         mrtStations.add(new MrtStation("Ang Mo Kio", "AMK", new String[] {"NS16"}));
         mrtStations.add(new MrtStation("Bishan", "BSH", new String[] {"NS17", "CC15"}));
@@ -257,7 +257,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Bukit Panjang", "BPJ", new String[] {"DT1"}));
         mrtStations.add(new MrtStation("Cashew", "CSW", new String[] {"DT2"}));
         mrtStations.add(new MrtStation("Hillview", "HVW", new String[] {"DT3"}));
-        mrtStations.add(new MrtStation("BeautyWorld", "BTW", new String[] {"DT5"}));
+        mrtStations.add(new MrtStation("Beauty World", "BTW", new String[] {"DT5"}));
     }
 
     /**
