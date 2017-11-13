@@ -23,13 +23,30 @@ package seedu.address.ui;
  *
  *************************************************************************/
 
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.geom.*;
-import java.awt.image.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
+
 import java.util.LinkedList;
 import java.util.TreeSet;
-import javax.swing.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+
+
 
 /**
  *  <i>Standard draw</i>. This class provides a basic capability for
@@ -97,7 +114,10 @@ public final class StdDraw {
     private static final double DEFAULT_XMAX = 1.0;
     private static final double DEFAULT_YMIN = 0.0;
     private static final double DEFAULT_YMAX = 1.0;
-    private static double xmin, ymin, xmax, ymax;
+    private static double xmin;
+    private static double ymin;
+    private static double xmax;
+    private static double ymax;
 
     // for synchronization
     private static Object mouseLock = new Object();
@@ -430,8 +450,7 @@ public final class StdDraw {
         // if (ws <= 1 && hs <= 1) pixel(x, y);
         if (scaledPenRadius <= 1) {
             pixel(x, y);
-        }
-        else {
+        } else {
             offscreen.fill(new Ellipse2D.Double(xs - scaledPenRadius / 2, ys - scaledPenRadius / 2,
                     scaledPenRadius, scaledPenRadius));
         }
@@ -473,8 +492,9 @@ public final class StdDraw {
         double hs = factorY(2 * r);
         if (ws <= 1 && hs <= 1) {
             pixel(x, y);
+        } else {
+            offscreen.fill(new Ellipse2D.Double(xs - ws / 2, ys - hs / 2, ws, hs));
         }
-        else offscreen.fill(new Ellipse2D.Double(xs - ws / 2, ys - hs / 2, ws, hs));
         draw();
     }
 
@@ -551,7 +571,9 @@ public final class StdDraw {
         draw();
     }
 
-    // draw onscreen if defer is false
+    /**
+     * draw onscreen if defer is false
+     */
     private static void draw() {
         if (defer) {
             return;
