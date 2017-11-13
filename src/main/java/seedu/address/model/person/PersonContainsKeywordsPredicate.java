@@ -10,7 +10,6 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.FindPersonDescriptor;
 import seedu.address.model.tag.Tag;
 
-//@@author hj2304
 /**
  * Tests that a {@code ReadOnlyPerson}'s {@code Name} matches any of the keywords given.
  */

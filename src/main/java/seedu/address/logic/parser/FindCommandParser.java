@@ -14,7 +14,6 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-//@@author hj2304
 /**
  * Parses input arguments and creates a new FindCommand object
  */

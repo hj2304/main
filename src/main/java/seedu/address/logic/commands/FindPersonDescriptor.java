@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-//@@author hj2304
 
 /**
  * Helper class to collate fields for Find Command
@@ -84,12 +83,9 @@ public class FindPersonDescriptor {
         }
     }
 
-    //@@author hj2304
     public Optional<List<String>> getMrt() {
         return Optional.ofNullable(mrt);
     }
-
-    //@@author
 
     public void setTag(String args) {
         String trimmedArgs = args.trim();

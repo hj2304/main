@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.FindPersonDescriptor;
 import seedu.address.testutil.PersonBuilder;
-//@@author hj2304
 
 public class PersonContainsKeywordsPredicateTest {
     private final FindPersonDescriptor first = new FindPersonDescriptor();

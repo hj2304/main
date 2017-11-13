@@ -125,7 +125,6 @@ public class Person implements ReadOnlyPerson {
         return address.get();
     }
 
-    //@@author hj2304
     public void setMrt(Mrt mrt) {
         this.mrt.set(requireNonNull(mrt));
     }
@@ -140,7 +139,6 @@ public class Person implements ReadOnlyPerson {
         return mrt.get();
     }
 
-    //@@author
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.

@@ -239,8 +239,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         return Objects.hash(persons, tags);
     }
 
-    //@@author hj2304
-
     /**
      * Remove tag from persson
      * Returns true if tag is successfully removed
@@ -258,7 +256,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void sort() {
         persons.sort();
     }
-
+    //@@author hj2304
     /**
      * Checks Meeting Time based on the list of Index.
      */

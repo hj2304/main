@@ -127,7 +127,6 @@ public class UniquePersonList implements Iterable<Person> {
     public int hashCode() {
         return internalList.hashCode();
     }
-    //@@author hj2304
 
     /**
      * Sort based on alphabetical order

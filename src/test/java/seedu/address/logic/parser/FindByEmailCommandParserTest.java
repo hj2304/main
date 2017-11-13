@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.FindByEmailCommand;
 import seedu.address.model.person.EmailContainsKeywordsPredicate;
-//@@author hj2304
 
 public class FindByEmailCommandParserTest {
 

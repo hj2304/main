@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindPersonDescriptor;
-//@@author hj2304
 
 public class FindCommandParserTest {
 

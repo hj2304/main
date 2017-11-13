@@ -189,7 +189,6 @@ public class EditCommand extends UndoableCommand {
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
         }
-        //@@author hj2304
 
         public void setMrt(Mrt mrt) {
             this.mrt = mrt;
@@ -198,8 +197,6 @@ public class EditCommand extends UndoableCommand {
         public Optional<Mrt> getMrt() {
             return Optional.ofNullable(mrt);
         }
-
-        //@@author
 
         public void setTags(Set<Tag> tags) {
             this.tags = tags;
