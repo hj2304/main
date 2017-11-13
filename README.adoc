@@ -46,11 +46,9 @@ endif::[]
 
 == Site Map
 
-* <<UserGuide#, User Guide>>
-* <<DeveloperGuide#, Developer Guide>>
-* <<LearningOutcomes#, Learning Outcomes>>
-* <<AboutUs#, About Us>>
-* <<ContactUs#, Contact Us>>
+* http://localhost:63342/FinalTeamRepo/build/docs/html5/UserGuide.html?_ijt=nkc7722g2fqihh3havromccu86[User Guide]
+* http://localhost:63342/FinalTeamRepo/build/docs/html5/DeveloperGuide.html?_ijt=nkc7722g2fqihh3havromccu86[Developer Guide]
+* http://localhost:63342/FinalTeamRepo/build/docs/html5/AboutUs.html?_ijt=nkc7722g2fqihh3havromccu86[About Us]
 
 == Acknowledgements
 
