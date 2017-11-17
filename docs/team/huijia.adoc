@@ -48,9 +48,4 @@ include::../DeveloperGuide.adoc[tag=search]
 
 === Other contributions
 
-* Added the field MRT and valid MRT stations to make finding a meeting place easier (Pull requests https://github.com[#33], https://github.com[#34])
-* Wrote additional tests to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
-
-== Project: PowerPointLabs
-
-{Optionally (not graded), you may include other projects in your portfolio.}
+* Added the field MRT and valid MRT stations to make finding a meeting place easier (Pull requests https://github.com[#34], https://github.com[#38])
