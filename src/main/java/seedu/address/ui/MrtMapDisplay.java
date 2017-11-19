@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import seedu.address.logic.MrtMapLogic;
 
-//@@author YewOnn
+//@@author KhawYewOnn
 /**
  * The java class displays the UI.
  */

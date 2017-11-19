@@ -8,7 +8,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.events.ui.LocateMrtCommandEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
-
+//@@author KhawYewOnn
 /**
  * Locate a person's address on Google Map using it's last displayed index from the address book.
  */
