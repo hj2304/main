@@ -1,4 +1,4 @@
-# YewOnn
+# KhawYewOnn
 ###### \java\seedu\address\commons\events\ui\LocateMrtCommandEvent.java
 ``` java
 public class LocateMrtCommandEvent extends BaseEvent {
@@ -21,6 +21,10 @@ public class LocateMrtCommandEvent extends BaseEvent {
 ```
 ###### \java\seedu\address\logic\commands\FindByPhoneCommand.java
 ``` java
+/**
+ * Finds and lists all persons in address book whose phone number contains any of the argument keywords.
+ * Keyword matching is case sensitive.
+ */
 public class FindByPhoneCommand extends Command {
 
     public static final String COMMAND_WORD = "findByPhone";
@@ -48,6 +52,52 @@ public class FindByPhoneCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof FindByPhoneCommand // instanceof handles nulls
                 && this.predicate.equals(((FindByPhoneCommand) other).predicate)); // state check
+    }
+}
+```
+###### \java\seedu\address\logic\commands\LocateMrtCommand.java
+``` java
+/**
+ * Locate a person's address on Google Map using it's last displayed index from the address book.
+ */
+public class LocateMrtCommand extends Command {
+
+    public static final String COMMAND_WORD = "locateMrt";
+    public static final String COMMAND_ALIAS = "lMrt";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Locate the person's nearest MRT specified on google map.\n"
+            + "Parameters: INDEX (must be a positive integer)\n"
+            + "Example: " + COMMAND_WORD + " 1";
+
+    public static final String MESSAGE_LOCATE_PERSON_SUCCESS = "Showing the nearest MRT of person ";
+
+    private final Index targetIndex;
+
+    public LocateMrtCommand(Index targetIndex) {
+        this.targetIndex = targetIndex;
+    }
+
+    @Override
+    public CommandResult execute() throws CommandException {
+
+        List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
+
+        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+
+        ReadOnlyPerson personToSearchAddress = lastShownList.get(targetIndex.getZeroBased());
+
+        EventsCenter.getInstance().post(new LocateMrtCommandEvent(personToSearchAddress));
+        return new CommandResult(String.format(MESSAGE_LOCATE_PERSON_SUCCESS, personToSearchAddress));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof LocateMrtCommand // instanceof handles nulls
+                && this.targetIndex.equals(((LocateMrtCommand) other).targetIndex)); // state check
     }
 }
 ```
@@ -293,7 +343,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Jurong East", "JUR", new String[] {"NS1", "EW24"}));
         mrtStations.add(new MrtStation("Bukit Batok", "BBT", new String[] {"NS2"}));
         mrtStations.add(new MrtStation("Bukit Gombak", "BGB", new String[] {"NS3"}));
-        mrtStations.add(new MrtStation("Choa Chua Kang", "CCK", new String[] {"NS4"}));
+        mrtStations.add(new MrtStation("Choa Chu Kang", "CCK", new String[] {"NS4"}));
         mrtStations.add(new MrtStation("Yew Tee", "YWT", new String[] {"NS5"}));
         mrtStations.add(new MrtStation("Kranji", "KRJ", new String[] {"NS7"}));
         mrtStations.add(new MrtStation("Marsiling", "MSL", new String[] {"NS8"}));
@@ -301,7 +351,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Admiralty", "ADM", new String[] {"NS10"}));
         mrtStations.add(new MrtStation("Sembawang", "SBW", new String[] {"NS11"}));
         mrtStations.add(new MrtStation("Yishun", "YIS", new String[] {"NS13"}));
-        mrtStations.add(new MrtStation("Khathib", "KTB", new String[] {"NS14"}));
+        mrtStations.add(new MrtStation("Khatib", "KTB", new String[] {"NS14"}));
         mrtStations.add(new MrtStation("Yio Chu Kang", "YCK", new String[] {"NS15"}));
         mrtStations.add(new MrtStation("Ang Mo Kio", "AMK", new String[] {"NS16"}));
         mrtStations.add(new MrtStation("Bishan", "BSH", new String[] {"NS17", "CC15"}));
@@ -408,7 +458,7 @@ public class MrtMapLogic {
         mrtStations.add(new MrtStation("Bukit Panjang", "BPJ", new String[] {"DT1"}));
         mrtStations.add(new MrtStation("Cashew", "CSW", new String[] {"DT2"}));
         mrtStations.add(new MrtStation("Hillview", "HVW", new String[] {"DT3"}));
-        mrtStations.add(new MrtStation("BeautyWorld", "BTW", new String[] {"DT5"}));
+        mrtStations.add(new MrtStation("Beauty World", "BTW", new String[] {"DT5"}));
     }
 
     /**
@@ -1036,8 +1086,37 @@ public class MrtMapLogic {
     }
 }
 ```
+###### \java\seedu\address\logic\parser\FindByPhoneCommandParser.java
+``` java
+/**
+ * Parses input arguments and creates a new FindByPhoneCommand object
+ */
+public class FindByPhoneCommandParser implements Parser<FindByPhoneCommand> {
+
+    /**
+     * Parses the given {@code String} of arguments in the context of the FindCommand
+     * and returns an FindCommand object for execution.
+     * @throws ParseException if the user input does not conform the expected format
+     */
+    public FindByPhoneCommand parse(String args) throws ParseException {
+        String trimmedArgs = args.trim();
+        if (trimmedArgs.isEmpty()) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindByPhoneCommand.MESSAGE_USAGE));
+        }
+
+        String[] nameKeywords = trimmedArgs.split("\\s+");
+
+        return new FindByPhoneCommand(new PhoneContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+    }
+
+}
+```
 ###### \java\seedu\address\logic\parser\LocateMrtCommandParser.java
 ``` java
+/**
+ * Parses input arguments and creates a new LocateMrtCommand object
+ */
 public class LocateMrtCommandParser implements Parser<LocateMrtCommand> {
 
     /**
@@ -1059,6 +1138,9 @@ public class LocateMrtCommandParser implements Parser<LocateMrtCommand> {
 ```
 ###### \java\seedu\address\model\person\PhoneContainsKeywordsPredicate.java
 ``` java
+/**
+ * Tests that a {@code ReadOnlyPerson}'s {@code Phone} matches any of the keywords given.
+ */
 public class PhoneContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
     private final List<String> keywords;
 
@@ -1257,7 +1339,7 @@ public class MrtMapDisplay {
             int currMrtIndex = i;
             int previousMrtIndex = i - 1;
 
-            if (isNeighbour(previousMrtIndex,currMrtIndex)) {
+            if (isNeighbour(previousMrtIndex, currMrtIndex)) {
                 StdDraw.setPenColor(StdDraw.GRAY);
                 ArrayList<String> commonLines = getCommonLines(previousMrtIndex, currMrtIndex);
                 StdDraw.setPenColor(getStationColor(commonLines.get(0)));
