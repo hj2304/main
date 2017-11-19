@@ -7,11 +7,10 @@ import java.util.Arrays;
 import seedu.address.logic.commands.FindByPhoneCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.PhoneContainsKeywordsPredicate;
-
+//@@author KhawYewOnn
 /**
  * Parses input arguments and creates a new FindByPhoneCommand object
  */
-//@@ YewOnn
 public class FindByPhoneCommandParser implements Parser<FindByPhoneCommand> {
 
     /**

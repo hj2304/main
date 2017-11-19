@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-//@@author YewOnn
+//@@author KhawYewOnn
 
 /**
  * Test the MrtMapLogic file to make sure it works well.
