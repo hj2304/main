@@ -4,7 +4,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 
 //@@author YuchenHe98
 /**
- * The object representing the time of the start of a 30-minute-span when a person is busy.
+ * The object representing the time of the start of a 30-minute-span when a person is free.
  */
 public class Time {
 
@@ -14,7 +14,11 @@ public class Time {
     private Integer time;
 
     public Time(String time) throws IllegalValueException {
-        this.time = Integer.parseInt(time);
+        try {
+            this.time = Integer.parseInt(time);
+        } catch (NumberFormatException e) {
+            throw new IllegalValueException("Not a proper time form");
+        }
         if (!isValid()) {
             throw new IllegalValueException("Not a proper time form");
         }
@@ -34,6 +38,29 @@ public class Time {
 
     public Integer getTime() {
         return time;
+    }
+
+    /**
+     * Returns if the time input is a valid schedule time.
+     */
+    public static boolean isValidTime(String test) {
+        if (test.length() != 4) {
+            return false;
+        }
+        char[] toTest = test.toCharArray();
+        for (int i = 0; i < toTest.length; i++) {
+            if (!Character.isDigit(toTest[i])) {
+                return false;
+            }
+        }
+        int timeNumber = Integer.parseInt(test);
+        if (timeNumber > 2330 || timeNumber < 600) {
+            return false;
+        }
+        if (timeNumber % 100 != 0 && timeNumber % 100 != 30) {
+            return false;
+        }
+        return true;
     }
 
     @Override
